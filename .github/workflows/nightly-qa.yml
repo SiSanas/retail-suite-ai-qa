@@ -1,0 +1,62 @@
+name: Retail Suite nightly QA
+
+on:
+  schedule:
+    - cron: "30 18 * * *"        # 18:30 UTC = 00:00 IST (midnight), every day
+  workflow_dispatch:             # "Run workflow" button for on-demand runs
+    inputs:
+      suites:
+        description: "Which suites to run"
+        default: "smoke,regression"
+        type: choice
+        options: ["smoke,regression", "smoke", "regression"]
+
+permissions:
+  contents: write                # to commit the reports back to the repo
+
+concurrency:
+  group: retail-suite-qa
+  cancel-in-progress: false
+
+jobs:
+  qa:
+    # GitHub's own machines can't reach Retail Suite, so this runs on our self-hosted runner inside the network.
+    runs-on: [self-hosted, Windows, retail-suite]
+    timeout-minutes: 240
+
+    steps:
+      - name: Get the test cases
+        uses: actions/checkout@v4
+
+      - name: Run smoke + regression with Claude Code
+        shell: powershell
+        env:
+          RS_USERNAME: ${{ secrets.RS_USERNAME }}
+          RS_PASSWORD: ${{ secrets.RS_PASSWORD }}
+          QA_CLAUDE_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}   # optional, see SETUP-GITHUB.md
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\ci-run.ps1 -Suites "${{ github.event.inputs.suites || 'smoke,regression' }}"
+
+      - name: Upload report, screenshots and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-report-${{ github.run_number }}
+          path: |
+            reports/
+            artifacts/
+          retention-days: 30
+
+      - name: Save report to the repository
+        if: always()
+        shell: powershell
+        run: |
+          git config user.name  "retail-suite-qa-bot"
+          git config user.email "retail-suite-qa-bot@users.noreply.github.com"
+          git add reports test-cases
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
+            git commit -m "QA report $(Get-Date -Format 'yyyy-MM-dd HH:mm') [skip ci]"
+            git pull --rebase
+            git push
+          } else { Write-Host "Nothing to commit." }

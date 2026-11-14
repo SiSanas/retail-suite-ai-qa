@@ -1,0 +1,15 @@
+# Credentials: never commit
+config/secrets.env
+
+# Local-only Claude settings and old backups
+.claude/settings.local.json
+.mcp.json.bak*
+
+# Screenshots and browser output (uploaded to the GitHub run instead of committed)
+artifacts/*
+!artifacts/.gitkeep
+.playwright-mcp/
+config/artifacts/
+
+# Raw run logs (uploaded to the GitHub run)
+reports/_logs/

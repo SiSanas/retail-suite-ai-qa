@@ -1,0 +1,18 @@
+id,title,module,priority,status,classification,duration_s,notes
+REG-ART-01,Quick search by name returns partial name matches,Articles,P1,PASS,,40,8 rows; 238 Banan first; all names contain banan
+REG-ART-02,Quick search by GTIN returns the article,Articles,P1,PASS,,35,1 row 238 Banan; Barcode and Primary GTIN 2317401100009
+REG-ART-03,Quick search with no match shows an empty-state message,Articles,P2,PASS,,20,No articles found shown
+REG-ART-04,Sort the article list by name ascending and descending,Articles,P2,PASS,,25,A-Z Banan..YOGH BLÅBÄR/BANAN; Z-A reversed
+REG-ART-05,Article details modal shows read-only basic and store info,Articles,P2,PASS,,45,238/Banan/Active/EAN 2317401100009; checkboxes disabled; receipt text Banan; × closed modal
+REG-ART-06,Advanced search filter by Article type = Deposit,Articles,P1,PASS,,120,10 rows incl. 301 DepositArt1; 301 and 6 both type Deposit; modal closed itself
+REG-ART-07,Advanced search applies a filter entered after Reset,Articles,P1,FAIL,PRODUCT-BUG,150,"After Reset, Article Name=Banan ignored: request queryObject empty, 1600-2000+ rows; failed on retry; artifacts/REG-ART-07-step3.png"
+REG-ART-08,Advanced search filter Is on campaign = Yes,Articles,P2,PASS,,30,30 rows incl. 55/71/259; 238 absent
+REG-ASD-01,Items with content switch shows or hides empty categories,Articles,P3,PASS,,50,OFF shows 7 (0) categories; ON hides them; left ON
+REG-ASD-02,"Current, Future and Historical tabs show their content",Articles,P2,PASS,,30,Labels to print 36; tab=futureChanges; tab=historicChanges with No historic batches / No batch is selected
+REG-CMP-01,"Search campaigns by name, ID and with no match",Articles,P1,PASS,,45,Test_Import and 2014233 -> 1 row; no match -> No campaigns found
+REG-CMP-02,Campaign status filter includes Expired campaigns,Articles,P2,PASS,,75,Defaults correct; +Expired 31 rows incl. 181 and 2014233; reset to Active only
+REG-CMP-03,Open campaign details and filter its articles,Articles,P1,PASS,,45,Details match; filter DOMESTOS -> 55 only; cleared -> 3 rows
+REG-CMP-04,Campaign overview tabs load,Articles,P2,PASS,,35,DC tab shows Import_Test_DC_Article; Top 5 tabs 3 rows each
+REG-HIE-01,Search hierarchies by ID and with no match,Articles,P2,PASS,,40,3450 -> 6/378/3450 path; no match -> empty tree
+REG-HIE-02,Expand and collapse a hierarchy node,Articles,P3,PASS,,70,Children 10022/1026/... shown then hidden
+REG-HIE-03,Open hierarchy details and switch to Detail view,Articles,P2,PASS,,90,CITRUS/3450/Detail level/Groceries SWE; split view Empty then filled; back to List View

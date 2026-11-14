@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__playwright",
+      "Read(config/**)",
+      "Read(test-cases/**)",
+      "Read(reports/**)",
+      "Write(test-cases/**)",
+      "Edit(test-cases/**)",
+      "Write(reports/**)",
+      "Edit(reports/**)",
+      "Bash(date:*)",
+      "Bash(mkdir:*)",
+      "Bash(ls:*)"
+    ],
+    "deny": [
+      "Read(config/secrets.env)",
+      "Edit(config/secrets.env)",
+      "Write(config/secrets.env)",
+      "Bash(cat config/secrets.env)"
+    ]
+  },
+  "enableAllProjectMcpServers": true
+}

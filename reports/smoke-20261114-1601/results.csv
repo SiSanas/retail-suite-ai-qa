@@ -1,0 +1,6 @@
+id,title,module,priority,status,classification,duration_s,notes
+SMK-ART-01,Search the stable article by ID and open its details,Articles,P1,PASS,,11,238 Banan listed first (62 partial matches); active sales price 21.00 shown
+SMK-ART-02,Advanced search opens and finds an article by Article Id,Articles,P1,PASS,,14,1 row 238 Banan; modal closed itself after Search
+SMK-CMP-01,Campaigns list loads and finds the stable campaign,Articles,P1,PASS,,8,Default list 1 row; search 2014233 -> Test_Import_Campaign Active
+SMK-HIE-01,Hierarchies tree loads and search shows the path to a node,Articles,P2,PASS,,9,CITRUS -> 6 FRUKT GRONT / 378 FRUKT / 3450 CITRUS
+SMK-ASD-01,Active store data page loads with categories and details,Articles,P2,PASS,,12,Historical: No historic batches are available

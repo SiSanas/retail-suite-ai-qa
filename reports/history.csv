@@ -1,0 +1,2 @@
+﻿date,suite,total,passed,failed,blocked,skipped,verdict,report,run_url
+2026-11-14T17:27:32,smoke,5,5,0,0,0,PASS,reports/smoke-20261114-1601/report.md,https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/43592348339

@@ -1,20 +1,16 @@
-﻿# Retail Suite nightly QA - 2026-11-17 13:03
+﻿# Retail Suite nightly QA - 2026-11-17 13:18
 
 | Suite | Total | Passed | Failed | Blocked | Skipped | Result |
 |---|---|---|---|---|---|---|
-| smoke | - | - | - | - | - | NO REPORT |
-| regression | - | - | - | - | - | NO REPORT |
+| smoke | 5 | 5 | 0 | 0 | 0 | PASS |
 
-## Failures
-- **smoke**: Claude did not produce results.csv. Check the log in the run artifacts.
-- **regression**: Claude did not produce results.csv. Check the log in the run artifacts.
-
-Run: https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/44039378096
+Run: https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/44040780058
 
 ## History (last 30 runs)
 
 | Date | Suite | Total | Passed | Failed | Blocked | Verdict | Report |
 |---|---|---|---|---|---|---|---|
+| 2026-11-17T13:18:24 | smoke | 5 | 5 | 0 | 0 | PASS | [report](smoke-20261117-1313/report.md) |
 | 2026-11-17T13:03:21 | regression | 0 | 0 | 0 | 0 | NO-REPORT | - |
 | 2026-11-17T13:03:21 | smoke | 0 | 0 | 0 | 0 | NO-REPORT | - |
 | 2026-11-17T13:00:03 | regression | 0 | 0 | 0 | 0 | NO-REPORT | - |

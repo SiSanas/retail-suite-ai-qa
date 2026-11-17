@@ -6,3 +6,4 @@
 2026-11-17T13:00:03,regression,0,0,0,0,0,NO-REPORT,,https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/43999078227
 2026-11-17T13:03:21,smoke,0,0,0,0,0,NO-REPORT,,https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/44039378096
 2026-11-17T13:03:21,regression,0,0,0,0,0,NO-REPORT,,https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/44039378096
+2026-11-17T13:18:24,smoke,5,5,0,0,0,PASS,reports/smoke-20261117-1313/report.md,https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/44040780058

@@ -1,0 +1,18 @@
+id,title,module,priority,status,classification,duration_s,notes
+REG-ART-01,Quick search by name returns partial name matches,Articles,P1,PASS,,45,"8 rows, 238 Banan first, all names contain banan"
+REG-ART-02,Quick search by GTIN returns the article,Articles,P1,PASS,,17,"One row 238 Banan; Barcode and Primary GTIN 2317401100009"
+REG-ART-03,Quick search with no match shows an empty-state message,Articles,P2,PASS,,12,"No articles found"
+REG-ART-04,Sort the article list by name ascending and descending,Articles,P2,PASS,,31,"Asc Banan..YOGH BLÅBÄR/BANAN; desc reversed"
+REG-ART-05,Article details modal shows read-only basic and store info,Articles,P2,PASS,,30,"Modal values match; checkboxes disabled; closed with x"
+REG-ART-06,Advanced search filter by Article type = Deposit,Articles,P1,PASS,,46,"10 rows incl. 301 DepositArt1; 301 and 6 both Deposit"
+REG-ART-07,Advanced search applies a filter entered after Reset,Articles,P1,FAIL,PRODUCT-BUG,105,"Known defect: first search after Reset sent empty queryObject and paged 3187 unfiltered rows; a second search returned 8 Banan rows"
+REG-ART-08,Advanced search filter Is on campaign = Yes,Articles,P2,FAIL,ENVIRONMENT,94,"238 Banan is listed (33 rows); test data changed: 238 is now on new local campaign 2026475 test 66565 (11/17/26-11/30/26)"
+REG-ASD-01,Items with content switch shows or hides empty categories,Articles,P3,PASS,,18,"(0) categories shown only with switch OFF; left ON"
+REG-ASD-02,"Current, Future and Historical tabs show their content",Articles,P2,PASS,,24,"Historical shows No historic batches are available"
+REG-CMP-01,"Search campaigns by name, ID and with no match",Articles,P1,PASS,,27,
+REG-CMP-02,Campaign status filter includes Expired campaigns,Articles,P2,PASS,,57,"181 KombFsg 6.7 and 2014233 listed; filter restored to Active only"
+REG-CMP-03,Open campaign details and filter its articles,Articles,P1,PASS,,21,
+REG-CMP-04,Campaign overview tabs load,Articles,P2,PASS,,30,"Top 5 tabs show 5 rows each"
+REG-HIE-01,Search hierarchies by ID and with no match,Articles,P2,PASS,,15,
+REG-HIE-02,Expand and collapse a hierarchy node,Articles,P3,PASS,,21,"Search box kept previous term; cleared before step 1"
+REG-HIE-03,Open hierarchy details and switch to Detail view,Articles,P2,PASS,,48,"Left in List View"

@@ -19,6 +19,36 @@ if (-not $env:RS_USERNAME -or -not $env:RS_PASSWORD) {
 }
 
 New-Item -ItemType Directory -Force -Path "reports\_logs", "artifacts" | Out-Null
+
+# ---------- Network check: is Retail Suite reachable (VPN / network)? ----------
+$baseUrl = ((Select-String -Path "config\app.md" -Pattern '\*\*Base URL:\*\*\s*(\S+)' | Select-Object -First 1).Matches[0].Groups[1].Value) -replace '#.*$', ''
+$reachable = $false
+foreach ($try in 1..3) {
+  try {
+    Invoke-WebRequest -Uri $baseUrl -UseBasicParsing -TimeoutSec 30 -MaximumRedirection 5 | Out-Null
+    $reachable = $true
+  } catch {
+    # Any HTTP answer (401, 403, 500...) still means the server is reachable.
+    if ($_.Exception.Response) { $reachable = $true }
+  }
+  if ($reachable) { break }
+  Write-Host "Retail Suite not reachable (attempt $try of 3), waiting 60 s..."
+  Start-Sleep -Seconds 60
+}
+if (-not $reachable) {
+  $msg = "UNREACHABLE: $baseUrl could not be reached from runner $env:COMPUTERNAME. Check the VPN / network. Tests were not run."
+  Write-Host "::error::$msg"
+  $history = "reports\history.csv"
+  if (-not (Test-Path $history)) {
+    "date,suite,total,passed,failed,blocked,skipped,verdict,report,run_url" | Set-Content $history -Encoding utf8
+  }
+  "$(Get-Date -Format s),$($Suites -replace ',', '+'),0,0,0,0,0,UNREACHABLE,,$runUrl" | Add-Content $history -Encoding utf8
+  $note = @("# Retail Suite nightly QA - $(Get-Date -Format 'yyyy-MM-dd HH:mm')", "", "**UNREACHABLE (VPN / network)**", "", $msg)
+  if ($env:GITHUB_STEP_SUMMARY) { $note | Add-Content $env:GITHUB_STEP_SUMMARY -Encoding utf8 }
+  $note | Set-Content "reports\LATEST.md" -Encoding utf8
+  exit 1
+}
+Write-Host "Retail Suite reachable: $baseUrl"
 "RS_USERNAME=$($env:RS_USERNAME)`r`nRS_PASSWORD=$($env:RS_PASSWORD)" | Set-Content -Path "config\secrets.env" -Encoding ascii
 
 try {
@@ -26,7 +56,11 @@ try {
     $stamp = Get-Date -Format "yyyyMMdd-HHmm"
     $log = "reports\_logs\$suite-$stamp.log"
     Write-Host "=== Running /$suite ($stamp) ==="
-    & claude -p "/$suite" --mcp-config "config/mcp.ci.json" --strict-mcp-config --output-format text 2>&1 |
+    # Permissions are passed here (not only in .claude/settings.json) because the runner checks the repo out into
+    # a new folder that Claude Code has never "trusted", and it ignores settings.json allow rules in untrusted folders.
+    & claude -p "/$suite" --mcp-config "config/mcp.ci.json" --strict-mcp-config --output-format text `
+      --allowedTools "mcp__playwright" "Read" "Glob" "Grep" "Edit(reports/**)" "Edit(test-cases/**)" "Edit(artifacts/**)" "Bash(date:*)" "Bash(mkdir:*)" "Bash(ls:*)" `
+      --disallowedTools "Read(config/secrets.env)" "Edit(config/secrets.env)" "Bash(cat:*)" "Bash(type:*)" "Bash(Get-Content:*)" 2>&1 |
       ForEach-Object { "$_" } | Tee-Object -FilePath $log
     Write-Host "=== /$suite finished (claude exit code $LASTEXITCODE) ==="
   }

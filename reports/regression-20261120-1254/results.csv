@@ -1,0 +1,18 @@
+id,title,module,priority,status,classification,duration_s,notes
+REG-ART-01,Quick search by name returns partial name matches,Articles,P1,PASS,,22,"8 rows, 238 Banan first, all names contain banan"
+REG-ART-02,Quick search by GTIN returns the article,Articles,P1,PASS,,15,"One row 238 Banan; Barcode and Primary GTIN 2317401100009"
+REG-ART-03,Quick search with no match shows an empty-state message,Articles,P2,PASS,,6,"No articles found"
+REG-ART-04,Sort the article list by name ascending and descending,Articles,P2,PASS,,18,"8 rows; asc Banan..YOGH BLÅBÄR/BANAN; desc reversed"
+REG-ART-05,Article details modal shows read-only basic and store info,Articles,P2,PASS,,28,"Modal: ID 238, Banan, Active, EAN 2317401100009, checkboxes disabled, receipt text Banan; closed with x"
+REG-ART-06,Advanced search filter by Article type = Deposit,Articles,P1,PASS,,61,"10 rows incl. 301 DepositArt1; 301 and 6 Pant 1 kr both Deposit"
+REG-ART-07,Advanced search applies a filter entered after Reset,Articles,P1,FAIL,PRODUCT-BUG,66,"Known defect, 3rd run in a row: first search after Reset ignored Article Name=Banan and listed ~2800 unfiltered rows; the retry (second search) returned the 8 Banan rows"
+REG-ART-08,Advanced search filter Is on campaign = Yes,Articles,P2,FAIL,ENVIRONMENT,66,"30 rows incl. 55/71/259 but also 238 Banan; 238 is still on local campaign 2026475 test 66565 (until 11/30/26). Same on retry"
+REG-ASD-01,Items with content switch shows or hides empty categories,Articles,P3,PASS,,39,"(0) categories shown only with switch OFF; left ON"
+REG-ASD-02,"Current, Future and Historical tabs show their content",Articles,P2,PASS,,20,"Counters 1 / 36; Historical shows No historic batches are available"
+REG-CMP-01,"Search campaigns by name, ID and with no match",Articles,P1,PASS,,20,
+REG-CMP-02,Campaign status filter includes Expired campaigns,Articles,P2,PASS,,19,"181 KombFsg 6.7 and 2014233 listed; filter restored to Active only"
+REG-CMP-03,Open campaign details and filter its articles,Articles,P1,PASS,,24,
+REG-CMP-04,Campaign overview tabs load,Articles,P2,PASS,,23,"DC tab lists 2014233 Import_Test_DC_Article; both Top 5 tabs have the expected columns and 1-5 rows"
+REG-HIE-01,Search hierarchies by ID and with no match,Articles,P2,PASS,,8,
+REG-HIE-02,Expand and collapse a hierarchy node,Articles,P3,PASS,,16,"Search box kept previous term; cleared before step 2"
+REG-HIE-03,Open hierarchy details and switch to Detail view,Articles,P2,PASS,,31,"Left in List View"

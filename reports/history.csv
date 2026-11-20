@@ -11,3 +11,5 @@
 2026-11-17T13:38:12,regression,17,15,2,0,0,FAIL,reports/regression-20261117-1325/report.md,https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/44041847586
 2026-11-18T11:09:41,smoke+regression,0,0,0,0,0,UNREACHABLE,,https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/44212864885
 2026-11-18T11:41:38,smoke,5,5,0,0,0,PASS,reports/smoke-20261118-1137/report.md,https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/44248903818
+2026-11-20T13:05:18,smoke,5,5,0,0,0,PASS,reports/smoke-20261120-1250/report.md,https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/44648209050
+2026-11-20T13:05:18,regression,17,15,2,0,0,FAIL,reports/regression-20261120-1254/report.md,https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/44648209050

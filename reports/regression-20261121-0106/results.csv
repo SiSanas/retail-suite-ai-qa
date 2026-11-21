@@ -1,0 +1,18 @@
+id,title,module,priority,status,classification,duration_s,notes
+REG-ART-01,Quick search by name returns partial name matches,Articles,P1,PASS,,15,8 rows; 238 Banan included; all names contain banan
+REG-ART-02,Quick search by GTIN returns the article,Articles,P1,PASS,,10,Single row 238 Banan; barcode and Primary GTIN match
+REG-ART-03,Quick search with no match shows an empty-state message,Articles,P2,PASS,,6,"No articles found" shown
+REG-ART-04,Sort the article list by name ascending and descending,Articles,P2,PASS,,45,Asc Banan first / YOGH last; desc reversed
+REG-ART-05,Article details modal shows read-only basic and store info,Articles,P2,PASS,,25,Modal values and disabled checkboxes as expected; closed with x
+REG-ART-06,Advanced search filter by Article type = Deposit,Articles,P1,PASS,,55,~10 rows; 301 and 70 show Article type Deposit
+REG-ART-07,Advanced search applies a filter entered after Reset,Articles,P1,FAIL,PRODUCT-BUG,75,First search after Reset ignored Article Name=Banan (2400+ unfiltered rows; first row 240 Oxfile); second search returned 8 rows
+REG-ART-08,Advanced search filter Is on campaign = Yes,Articles,P2,FAIL,ENVIRONMENT,70,238 Banan listed (31 rows) because it is on campaign 2026475 test 66565 until 11/30/26; same on retry
+REG-ASD-01,Items with content switch shows or hides empty categories,Articles,P3,PASS,,40,Switch left ON
+REG-ASD-02,Current Future and Historical tabs show their content,Articles,P2,PASS,,25,tab=futureChanges and tab=historicChanges; "No historic batches are available"
+REG-CMP-01,Search campaigns by name ID and with no match,Articles,P1,PASS,,35,"No campaigns found" for no match
+REG-CMP-02,Campaign status filter includes Expired campaigns,Articles,P2,PASS,,150,Filter restored to Active only (2014233 and 2026475)
+REG-CMP-03,Open campaign details and filter its articles,Articles,P1,PASS,,35,
+REG-CMP-04,Campaign overview tabs load,Articles,P2,PASS,,30,Top 5 grids have 4 rows each
+REG-HIE-01,Search hierarchies by ID and with no match,Articles,P2,PASS,,25,Empty tree for no match
+REG-HIE-02,Expand and collapse a hierarchy node,Articles,P3,PASS,,25,
+REG-HIE-03,Open hierarchy details and switch to Detail view,Articles,P2,PASS,,70,Left in List View

@@ -1,4 +1,4 @@
-﻿# Retail Suite nightly QA - 2026-11-21 01:17
+﻿# Retail Suite nightly QA - 2026-11-22 00:43
 
 | Suite | Total | Passed | Failed | Blocked | Skipped | Result |
 |---|---|---|---|---|---|---|
@@ -6,15 +6,17 @@
 | regression | 17 | 15 | 2 | 0 | 0 | **FAIL** |
 
 ## Failures
-- **REG-ART-07** Advanced search applies a filter entered after Reset: FAIL PRODUCT-BUG - First search after Reset ignored Article Name=Banan (2400+ unfiltered rows; first row 240 Oxfile); second search returned 8 rows
-- **REG-ART-08** Advanced search filter Is on campaign = Yes: FAIL ENVIRONMENT - 238 Banan listed (31 rows) because it is on campaign 2026475 test 66565 until 11/30/26; same on retry
+- **REG-ART-07** Advanced search applies a filter entered after Reset: FAIL PRODUCT-BUG - First search after Reset ignored Article Name=Banan (full assortment; first row 240 Oxfile); second search returned 8 rows
+- **REG-ART-08** Advanced search filter Is on campaign = Yes: FAIL ENVIRONMENT - 238 Banan listed (27 rows) because it is on campaign "test 66565" (seen on Top 5 campaign tabs); same on retry
 
-Run: https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/44841244770
+Run: https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/44962034770
 
 ## History (last 30 runs)
 
 | Date | Suite | Total | Passed | Failed | Blocked | Verdict | Report |
 |---|---|---|---|---|---|---|---|
+| 2026-11-22T00:43:09 | regression | 17 | 15 | 2 | 0 | FAIL | [report](regression-20261122-0032/report.md) |
+| 2026-11-22T00:43:09 | smoke | 5 | 5 | 0 | 0 | PASS | [report](smoke-20261122-0028/report.md) |
 | 2026-11-21T01:17:06 | regression | 17 | 15 | 2 | 0 | FAIL | [report](regression-20261121-0106/report.md) |
 | 2026-11-21T01:17:06 | smoke | 5 | 5 | 0 | 0 | PASS | [report](smoke-20261121-0102/report.md) |
 | 2026-11-20T15:58:32 | smoke | 5 | 5 | 0 | 0 | PASS | [report](smoke-20261120-1554/report.md) |

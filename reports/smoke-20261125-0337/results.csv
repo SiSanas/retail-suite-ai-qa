@@ -1,0 +1,6 @@
+id,title,module,priority,status,classification,duration_s,notes
+SMK-ART-01,Search the stable article by ID and open its details,Articles,P1,PASS,,95,Menu overlay blocked first row click; cleared by moving mouse (known quirk)
+SMK-ART-02,Advanced search opens and finds an article by Article Id,Articles,P1,PASS,,25,Modal closed itself after Search
+SMK-ASD-01,Active store data page loads with categories and details,Articles,P2,PASS,,15,
+SMK-CMP-01,Campaigns list loads and finds the stable campaign,Articles,P1,PASS,,25,
+SMK-HIE-01,Hierarchies tree loads and search shows the path to a node,Articles,P2,PASS,,20,

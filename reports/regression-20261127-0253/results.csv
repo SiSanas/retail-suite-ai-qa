@@ -1,0 +1,18 @@
+id,title,module,priority,status,classification,duration_s,notes
+REG-ART-01,Quick search by name returns partial name matches,Articles,P1,PASS,,20,8 rows; 238 Banan included; all names contain banan
+REG-ART-02,Quick search by GTIN returns the article,Articles,P1,PASS,,15,Single row 238 Banan; Barcode and Primary GTIN 2317401100009
+REG-ART-03,Quick search with no match shows an empty-state message,Articles,P2,PASS,,10,"No articles found" shown
+REG-ART-04,Sort the article list by name ascending and descending,Articles,P2,PASS,,45,Asc Banan first / YOGH last; desc reversed (menu overlay had to be dismissed first)
+REG-ART-05,Article details modal shows read-only basic and store info,Articles,P2,PASS,,25,Modal values and disabled checkboxes as expected; closed with x
+REG-ART-06,Advanced search filter by Article type = Deposit,Articles,P1,PASS,,20,10 rows; 301 and 70 show Article type Deposit
+REG-ART-07,Advanced search applies a filter entered after Reset,Articles,P1,PASS (flaky),,100,"First attempt after Reset ignored Article Name=Banan (3310+ unfiltered rows; first row 240 Oxfile); retry returned the Banan list (238 first). Known 2026-11-14 behaviour still intermittent"
+REG-ART-08,Advanced search filter Is on campaign = Yes,Articles,P2,FAIL,ENVIRONMENT,60,238 Banan listed because it is on active local campaign 2026475 "test 66565" (11/17/26-11/30/26); same on retry; 55/71/259 present
+REG-ASD-01,Items with content switch shows or hides empty categories,Articles,P3,PASS,,25,Switch left ON; OFF showed 7 (0) categories
+REG-ASD-02,Current Future and Historical tabs show their content,Articles,P2,PASS,,30,tab=futureChanges and tab=historicChanges; "No historic batches are available"
+REG-CMP-01,Search campaigns by name ID and with no match,Articles,P1,PASS,,35,"No campaigns found" for no match
+REG-CMP-02,Campaign status filter includes Expired campaigns,Articles,P2,PASS,,40,Filter restored to Active only
+REG-CMP-03,Open campaign details and filter its articles,Articles,P1,PASS,,25,
+REG-CMP-04,Campaign overview tabs load,Articles,P2,PASS,,30,Top 5 grids have 4 rows each
+REG-HIE-01,Search hierarchies by ID and with no match,Articles,P2,PASS,,25,Empty tree for no match
+REG-HIE-02,Expand and collapse a hierarchy node,Articles,P3,PASS,,25,
+REG-HIE-03,Open hierarchy details and switch to Detail view,Articles,P2,PASS,,40,Left in List View

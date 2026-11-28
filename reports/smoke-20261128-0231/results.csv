@@ -1,0 +1,6 @@
+id,title,module,priority,status,classification,duration_s,notes
+SMK-ART-01,Search the stable article by ID and open its details,Articles,P1,PASS,,95,Search click was blocked by the open menu drop-down (known quirk); worked after moving the mouse off the menu. First row 238 Banan; Sales price 21.00 shown.
+SMK-ART-02,Advanced search opens and finds an article by Article Id,Articles,P1,PASS,,45,Status pre-filled "Created, Active"; one row 238 Banan; modal closed itself after Search
+SMK-ASD-01,Active store data page loads with categories and details,Articles,P2,PASS,,30,Historical tab showed "No historic batches are available" and "No batch is selected"
+SMK-CMP-01,Campaigns list loads and finds the stable campaign,Articles,P1,PASS,,30,Search for 2014233 returned one row Active
+SMK-HIE-01,Hierarchies tree loads and search shows the path to a node,Articles,P2,PASS,,30,CITRUS search showed 6 - FRUKT;GRÖNT > 378 - FRUKT > 3450 - CITRUS

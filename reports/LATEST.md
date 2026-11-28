@@ -1,4 +1,4 @@
-﻿# Retail Suite nightly QA - 2026-11-27 03:01
+﻿# Retail Suite nightly QA - 2026-11-28 02:46
 
 | Suite | Total | Passed | Failed | Blocked | Skipped | Result |
 |---|---|---|---|---|---|---|
@@ -8,12 +8,14 @@
 ## Failures
 - **REG-ART-08** Advanced search filter Is on campaign = Yes: FAIL ENVIRONMENT - 238 Banan listed because it is on active local campaign 2026475 "test 66565" (11/17/26-11/30/26); same on retry; 55/71/259 present
 
-Run: https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/45924844809
+Run: https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/46093581008
 
 ## History (last 30 runs)
 
 | Date | Suite | Total | Passed | Failed | Blocked | Verdict | Report |
 |---|---|---|---|---|---|---|---|
+| 2026-11-28T02:46:35 | regression | 17 | 16 | 1 | 0 | FAIL | [report](regression-20261128-0237/report.md) |
+| 2026-11-28T02:46:35 | smoke | 5 | 5 | 0 | 0 | PASS | [report](smoke-20261128-0231/report.md) |
 | 2026-11-27T03:01:24 | regression | 17 | 16 | 1 | 0 | FAIL | [report](regression-20261127-0253/report.md) |
 | 2026-11-27T03:01:24 | smoke | 5 | 5 | 0 | 0 | PASS | [report](smoke-20261127-0249/report.md) |
 | 2026-11-26T03:09:27 | regression | 17 | 15 | 2 | 0 | FAIL | [report](regression-20261126-0309/report.md) |
@@ -42,4 +44,3 @@ Run: https://github.com/SiSanas/retail-suite-ai-qa/actions/runs/45924844809
 | 2026-11-17T13:00:03 | smoke | 0 | 0 | 0 | 0 | NO-REPORT | - |
 | 2026-11-16T10:22:43 | regression | 0 | 0 | 0 | 0 | NO-REPORT | - |
 | 2026-11-16T10:22:43 | smoke | 0 | 0 | 0 | 0 | NO-REPORT | - |
-| 2026-11-14T17:27:32 | smoke | 5 | 5 | 0 | 0 | PASS | [report](smoke-20261114-1601/report.md) |
